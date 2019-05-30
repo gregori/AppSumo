@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sumo</string>
+    <string name="tab_text_1">Param</string>
+    <string name="tab_text_2">IOs</string>
+    <string name="tab_text_3">Set Case</string>
+    <string name="tab_text_4">Conn</string>
+</resources>
