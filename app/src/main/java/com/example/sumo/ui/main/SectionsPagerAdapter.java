@@ -7,7 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.sumo.ConnectionTab;
+import com.example.sumo.IOsTap;
+import com.example.sumo.ParametersTap;
 import com.example.sumo.R;
+import com.example.sumo.SetCaseTab;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -26,9 +30,22 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        switch (position) {
+            case 0:
+                ParametersTap tab1 = new ParametersTap();
+                return tab1;
+            case 1:
+                IOsTap tab2 = new IOsTap();
+                return tab2;
+            case 2:
+                SetCaseTab tab3 = new SetCaseTab();
+                return tab3;
+            case 3:
+                ConnectionTab tab4 = new ConnectionTab();
+                return tab4;
+            default:
+                return null;
+        }
     }
 
     @Nullable
