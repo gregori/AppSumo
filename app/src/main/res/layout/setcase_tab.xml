@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/SetCase1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -19,29 +19,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/SetCase2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 2"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase1"
+        app:layout_constraintStart_toEndOf="@+id/SetCase1" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/SetCase3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 3"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase2"
+        app:layout_constraintStart_toEndOf="@+id/SetCase2" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/SetCase4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,12 +49,12 @@
         android:background="#FF2E2E2E"
         android:text="Case 4"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button5"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/SetCase3" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/SetCase5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -63,32 +63,32 @@
         android:text="Case 5"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/SetCase1" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/SetCase6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 6"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button7"
-        app:layout_constraintStart_toEndOf="@+id/button7" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase5"
+        app:layout_constraintStart_toEndOf="@+id/SetCase5" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/SetCase7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 7"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button8"
-        app:layout_constraintStart_toEndOf="@+id/button8" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase6"
+        app:layout_constraintStart_toEndOf="@+id/SetCase6" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/SetCase8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -96,12 +96,12 @@
         android:background="#FF2E2E2E"
         android:text="Case 8"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button9"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button9" />
+        app:layout_constraintStart_toEndOf="@+id/SetCase7" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/SetCase9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -110,32 +110,32 @@
         android:text="Case 9"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/SetCase5" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/SetCase10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 10"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button11"
-        app:layout_constraintStart_toEndOf="@+id/button11" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase9"
+        app:layout_constraintStart_toEndOf="@+id/SetCase9" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/SetCase11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 11"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button12"
-        app:layout_constraintStart_toEndOf="@+id/button12" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase10"
+        app:layout_constraintStart_toEndOf="@+id/SetCase10" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/SetCase12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -143,12 +143,12 @@
         android:background="#FF2E2E2E"
         android:text="Case 12"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button13"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button13" />
+        app:layout_constraintStart_toEndOf="@+id/SetCase11" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/SetCase13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -157,32 +157,32 @@
         android:text="Case 13"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/SetCase9" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/SetCase14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 14"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button15"
-        app:layout_constraintStart_toEndOf="@+id/button15" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase13"
+        app:layout_constraintStart_toEndOf="@+id/SetCase13" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/SetCase15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:background="#FF2E2E2E"
         android:text="Case 15"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button16"
-        app:layout_constraintStart_toEndOf="@+id/button16" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase14"
+        app:layout_constraintStart_toEndOf="@+id/SetCase14" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/SetCase16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -190,12 +190,12 @@
         android:background="#FF2E2E2E"
         android:text="Case 16"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button17"
+        app:layout_constraintBaseline_toBaselineOf="@+id/SetCase15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button17" />
+        app:layout_constraintStart_toEndOf="@+id/SetCase15" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/ListaSetCase"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
@@ -207,5 +207,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button17" />
+        app:layout_constraintTop_toBottomOf="@+id/SetCase15" />
 </android.support.constraint.ConstraintLayout>
