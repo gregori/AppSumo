@@ -175,8 +175,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text=""
-        android:textColor="#5CFF82"
+        android:text=">"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.286"
@@ -217,7 +217,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text=""
+        android:text=">"
         android:textColor="#5CFF82"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -245,17 +245,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-    <TextView
-        android:id="@+id/txtRight"
-        android:layout_width="48dp"
-        android:layout_height="46dp"
-        android:text=">"
-        android:textAlignment="center"
-        android:textSize="33sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnRight3"
-        app:layout_constraintEnd_toEndOf="@+id/btnRight3"
-        app:layout_constraintStart_toStartOf="@+id/btnRight3"
-        app:layout_constraintTop_toTopOf="@+id/btnRight3" />
 
 </android.support.constraint.ConstraintLayout>
