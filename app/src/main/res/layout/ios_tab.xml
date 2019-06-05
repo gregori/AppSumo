@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/lstIOs"
+        android:id="@+id/lstIOS"
         android:layout_width="311dp"
         android:layout_height="303dp"
         android:layout_marginStart="32dp"

@@ -283,7 +283,7 @@
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
         android:background="#FF2E2E2E"
-        android:text="TextView"
+        android:hint="Your Message"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
