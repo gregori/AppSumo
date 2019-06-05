@@ -6,11 +6,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/btnKI"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="KI"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnKP"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnKP"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="KP"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnKD"
+        app:layout_constraintEnd_toStartOf="@+id/btnKI"
+        app:layout_constraintStart_toEndOf="@+id/btnKD" />
+
+    <Button
+        android:id="@+id/btnKD"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
+        android:text="KD"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtKD" />
+
+    <EditText
+        android:id="@+id/edtKI"
+        android:layout_width="114dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtKP"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/edtKP"
+        android:layout_width="114dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtKD"
+        app:layout_constraintEnd_toStartOf="@+id/edtKI"
+        app:layout_constraintStart_toEndOf="@+id/edtKD" />
+
+    <EditText
+        android:id="@+id/edtKD"
+        android:layout_width="114dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textCursorDrawable="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAtaque" />
+
     <EditText
         android:id="@+id/edtAtaque"
         android:layout_width="114dp"
         android:layout_height="45dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -23,7 +119,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edtRecover"
         android:layout_width="114dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -33,11 +129,11 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/edtAtaque"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/edtSearch"
         app:layout_constraintStart_toEndOf="@+id/edtAtaque" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edtSearch"
         android:layout_width="114dp"
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
@@ -45,121 +141,60 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtRecover"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="12dp"
+        android:id="@+id/btnAtaque"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="17dp"
+
         android:layout_marginTop="8dp"
-        android:background="#FF2E2E2E"
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
         android:text="Ataque"
         android:textColor="#FFFFFF"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtAtaque" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#FF2E2E2E"
+        android:id="@+id/btnSetCase1"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
         android:text="Recover"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnAtaque"
+        app:layout_constraintEnd_toStartOf="@+id/btnSetCase2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAtaque" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="12dp"
-        android:background="#FF2E2E2E"
+        android:id="@+id/btnSetCase2"
+        android:layout_width="110dp"
+        android:layout_height="45dp"
+
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/button_principal"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
         android:text="Search"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText5"
-        app:layout_constraintEnd_toStartOf="@+id/editText7"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/editText5" />
-
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText6"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:background="#FF2E2E2E"
-        android:text="KP"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#FF2E2E2E"
-        android:text="KD"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/editText6" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="16dp"
-        android:background="#FF2E2E2E"
-        android:text="KI"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button6"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase1"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
@@ -181,11 +216,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.286"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUp2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUp" />
 
     <Button
 
-        android:id="@+id/btnRight2"
+        android:id="@+id/btnDown"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -202,11 +237,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUp2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUp" />
 
     <Button
 
-        android:id="@+id/btnRight3"
+        android:id="@+id/btnLeft"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -223,15 +258,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUp2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUp" />
 
     <Button
 
-        android:id="@+id/btnUp2"
+        android:id="@+id/btnUp"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_controller"
         android:shadowColor="#734AA8"
@@ -244,6 +279,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/btnKP" />
 
 </android.support.constraint.ConstraintLayout>
