@@ -1,10 +1,5 @@
 package com.example.sumo;
 
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import com.example.sumo.ui.main.SectionsPagerAdapter;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -26,7 +21,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class TesteTela extends AppCompatActivity {
+
 
     String address = null;
     private ProgressDialog progress;
@@ -54,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
     }
     @SuppressLint("SetTextI18n")
     public void setText_elements() {
-        btnConnect.setText("Conectar");
+        //btnConnect.setText("Conectar");
         //btnReconnect.setText("⟳");
-        //btnUp.setText("↑");
-       // btnRight.setText("→");
-        //btnDonw.setText("↓");
-        //btnLeft.setText("←");
+        btnUp.setText("↑");
+        btnRight.setText("→");
+        btnDonw.setText("↓");
+        btnLeft.setText("←");
         //btnStart.setText("►        Iniciar");
         //btnStop.setText("\uD83D\uDEAB         Parar");
         //btnReadSensors.setText("Ler sensores");
@@ -100,28 +96,22 @@ public class MainActivity extends AppCompatActivity {
         reference_elements();
         setText_elements();
         setValueButton();
-        setContentView(R.layout.activity_main);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
 
         Intent newint = getIntent();
         address = newint.getStringExtra(Device.EXTRA_ADDRESS);
-        new MainActivity.ConnectBT().execute();
-//        btnReconnect.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Disconnect();
-//            }
-//        });
+        new ConnectBT().execute();
+        btnReconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Disconnect();
+            }
+        });
         btnConnect.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 if (!isBtConnected) {
-                    Intent intent = new Intent(MainActivity.this, Device.class);
+                    Intent intent = new Intent(TesteTela.this, Device.class);
                     startActivity(intent);
                 } else if (isBtConnected) {
                     Disconnect();
@@ -168,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         private boolean ConnectSuccess = true;
         @Override
         protected void onPreExecute() {
-            //progress = ProgressDialog.show(MainActivity.this, "Connecting...", "Please Wait!!!");
+            progress = ProgressDialog.show(TesteTela.this, "Connecting...", "Please Wait!!!");
         }
         @Override
         protected Void doInBackground(Void... devices) {
@@ -228,4 +218,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return s;
     }
+    ///////////////////////////////////
+
 }
