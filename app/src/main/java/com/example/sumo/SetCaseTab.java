@@ -52,7 +52,6 @@ public class SetCaseTab extends Fragment {
 
         txvMessageControl = view.findViewById(R.id.txvMessageControl);
 
-
         return view;
     }
 }
