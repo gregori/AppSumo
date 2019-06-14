@@ -1,11 +1,10 @@
 package com.example.sumo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -53,6 +52,76 @@ public class ParametersTap extends Fragment {
         edtKD = view.findViewById(R.id.edtKD);
         edtKP = view.findViewById(R.id.edtKP);
         edtKI = view.findViewById(R.id.edtKI);
+
+        btnLeft.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        //btnLeft.setImageAlpha(100);
+                        ToothReadWrite.WriteBuffer((byte)4);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        //bntLeft.setImageAlpha(255);
+                        Log.v("MANDA:", "0");
+                        ToothReadWrite.WriteBuffer((byte)0);
+                        break;
+                }
+                return false;
+            }
+        });
+        btnDown.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        //bntRight.setImageAlpha(100);
+                        ToothReadWrite.WriteBuffer((byte)8);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        //bntRight.setImageAlpha(255);
+                        ToothReadWrite.WriteBuffer((byte)0);
+                        break;
+                }
+                return false;
+            }
+        });
+        btnUp.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        //bntUp.setImageAlpha(100);
+                        ToothReadWrite.WriteBuffer((byte)1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        //bntUp.setImageAlpha(255);
+                        ToothReadWrite.WriteBuffer((byte)0);
+                        break;
+                }
+                return false;
+            }
+        });
+        btnDown.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        //bntDown.setImageAlpha(100);
+                        ToothReadWrite.WriteBuffer((byte)2);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        //bntDown.setImageAlpha(255);
+                        ToothReadWrite.WriteBuffer((byte)0);
+                        break;
+                }
+                return false;
+            }
+        });
 
         OnclickEvents();
         return view;
@@ -116,5 +185,8 @@ public class ParametersTap extends Fragment {
         } else
             Toast.makeText(this.getActivity(), "O campo '" + field + "' não pode ser nulo!", Toast.LENGTH_LONG).show();
     }
+
+
 }
+
 
