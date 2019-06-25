@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 public class ParametersTap extends Fragment {
 
+    private ConnectionTab connTab = new ConnectionTab();
+
     private Button btnUp;
     private Button btnDown;
     private Button btnLeft;
@@ -35,8 +37,6 @@ public class ParametersTap extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.parameters_tab, container, false);
 
-        ConnectionTab connTab = new ConnectionTab();
-
         btnUp = view.findViewById(R.id.btnUp);
         btnDown = view.findViewById(R.id.btnDown);
         btnLeft = view.findViewById(R.id.btnLeft);
@@ -47,6 +47,8 @@ public class ParametersTap extends Fragment {
         btnKP = view.findViewById(R.id.btnKP);
         btnKD = view.findViewById(R.id.btnKD);
         btnKI = view.findViewById(R.id.btnKI);
+
+        btnRight.setText("<");
 
         edtAtaque = view.findViewById(R.id.edtAtaque);
         edtRecover = view.findViewById(R.id.edtRecover);
@@ -60,12 +62,10 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        //btnLeft.setImageAlpha(100);
                         ToothReadWrite.WriteBuffer((byte)4);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        //bntLeft.setImageAlpha(255);
                         Log.v("MANDA:", "0");
                         ToothReadWrite.WriteBuffer((byte)0);
                         break;
@@ -78,12 +78,10 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        //bntRight.setImageAlpha(100);
                         ToothReadWrite.WriteBuffer((byte)8);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        //bntRight.setImageAlpha(255);
                         ToothReadWrite.WriteBuffer((byte)0);
                         break;
                 }
@@ -95,12 +93,10 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        //bntUp.setImageAlpha(100);
                         ToothReadWrite.WriteBuffer((byte)1);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        //bntUp.setImageAlpha(255);
                         ToothReadWrite.WriteBuffer((byte)0);
                         break;
                 }
@@ -112,12 +108,10 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        //bntDown.setImageAlpha(100);
                         ToothReadWrite.WriteBuffer((byte)2);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        //bntDown.setImageAlpha(255);
                         ToothReadWrite.WriteBuffer((byte)0);
                         break;
                 }

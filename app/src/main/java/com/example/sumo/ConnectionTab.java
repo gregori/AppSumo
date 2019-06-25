@@ -54,7 +54,6 @@ public class ConnectionTab extends Fragment {
     private Set<BluetoothDevice> mPairedDevices;
     private ArrayAdapter<String> mBTArrayAdapter;
     private ListView mDevicesListView;
-    private CheckBox mLED1;
 
     private final String TAG = MainActivity.class.getSimpleName();
     private Handler mHandler; // Our main handler that will receive callback notifications
@@ -79,7 +78,6 @@ public class ConnectionTab extends Fragment {
         mOffBtn = (Button)view.findViewById(R.id.off);
         mDiscoverBtn = (Button)view.findViewById(R.id.discover);
         mListPairedDevicesBtn = (Button)view.findViewById(R.id.PairedBtn);
-        mLED1 = (CheckBox)view.findViewById(R.id.checkboxLED1);
 
         mBTArrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
         mBTAdapter = BluetoothAdapter.getDefaultAdapter(); // get a handle on the bluetooth radio
@@ -120,15 +118,6 @@ public class ConnectionTab extends Fragment {
             Toast.makeText(view.getContext(),"Bluetooth device not found!",Toast.LENGTH_SHORT).show();
         }
         else {
-
-            mLED1.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    if(mConnectedThread != null) //First check to make sure thread created
-                        mConnectedThread.write("1");
-                }
-            });
-
 
             mScanBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
