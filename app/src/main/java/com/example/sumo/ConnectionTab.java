@@ -73,7 +73,7 @@ public class ConnectionTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.connection_tab, container, false);
 
-        mBluetoothStatus = (TextView)view.findViewById(R.id.bluetoothStatus);
+        mBluetoothStatus = (TextView)view.findViewById(R.id.);
         mReadBuffer = (TextView) view.findViewById(R.id.readBuffer);
         mScanBtn = (Button)view.findViewById(R.id.scan);
         mOffBtn = (Button)view.findViewById(R.id.off);

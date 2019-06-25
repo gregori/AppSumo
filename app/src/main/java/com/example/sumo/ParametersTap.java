@@ -35,8 +35,6 @@ public class ParametersTap extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.parameters_tab, container, false);
 
-        ConnectionTab connTab = new ConnectionTab();
-
         btnUp = view.findViewById(R.id.btnUp);
         btnDown = view.findViewById(R.id.btnDown);
         btnLeft = view.findViewById(R.id.btnLeft);
