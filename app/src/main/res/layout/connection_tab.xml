@@ -116,9 +116,7 @@
             android:layout_below="@+id/PairedBtn"
             android:layout_alignEnd="@+id/off"
             android:layout_alignRight="@+id/off"
-            android:background="#FF191717"
-            android:choiceMode="singleChoice"
-            android:foreground="#FFFFFF" />
+            android:choiceMode="singleChoice" />
 
     </LinearLayout>
 </RelativeLayout>
