@@ -63,7 +63,6 @@ public class ParametersTap extends Fragment {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         bluetooth.write("6");
-                        //ToothReadWrite.WriteBuffer();
                         break;
 
                     case MotionEvent.ACTION_UP:
@@ -168,17 +167,35 @@ public class ParametersTap extends Fragment {
         if (!edtFiledValue.equals("")) {
             switch (field){
                 case "Ataque":
-                    //FuntionsAtaque();
+                    if(Integer.valueOf(edtAtaque.getText().toString()) >= 0 &&  Integer.valueOf(edtAtaque.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtAtaque.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de Ataque deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
                 case "Recover":
-                    //FunctionsRecover();
+                    if(Integer.valueOf(edtRecover.getText().toString()) >= 0 &&  Integer.valueOf(edtRecover.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtRecover.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de Recover deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
                 case "Search":
-                    //FunctionsSearch();
+                    if(Integer.valueOf(edtSearch.getText().toString()) >= 0 &&  Integer.valueOf(edtSearch.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtSearch.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de Recover deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
                 case "KD":
-                    //FunctionsKD();
+                    if(Integer.valueOf(edtKD.getText().toString()) >= 0 &&  Integer.valueOf(edtKD.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtKD.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de KD deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
                 case "KP":
-                    //FunctionsKP();
+                    if(Integer.valueOf(edtKP.getText().toString()) >= 0 &&  Integer.valueOf(edtKP.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtKP.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de KP deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
                 case "KI":
-                    //FunctionsKI();
+                    if(Integer.valueOf(edtKI.getText().toString()) >= 0 &&  Integer.valueOf(edtKI.getText().toString()) <= 255)
+                        bluetooth.write("a"+edtKI.getText().toString());
+                    else
+                        Toast.makeText(this.getActivity(), "O valor de KI deve estar entre 0 e 255", Toast.LENGTH_SHORT).show();
             }
         } else
             Toast.makeText(this.getActivity(), "O campo '" + field + "' não pode ser nulo!", Toast.LENGTH_LONG).show();
