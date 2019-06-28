@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 public class ParametersTap extends Fragment {
 
-    private ConnectionTab connTab = new ConnectionTab();
-
     private Button btnUp;
     private Button btnDown;
     private Button btnLeft;
@@ -32,6 +30,8 @@ public class ParametersTap extends Fragment {
     private EditText edtKD;
     private EditText edtKP;
     private EditText edtKI;
+
+    public Bluetooth bluetooth = new Bluetooth();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,27 +62,29 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        ToothReadWrite.WriteBuffer((byte)4);
+                        bluetooth.write("6");
+                        //ToothReadWrite.WriteBuffer();
                         break;
 
                     case MotionEvent.ACTION_UP:
                         Log.v("MANDA:", "0");
-                        ToothReadWrite.WriteBuffer((byte)0);
+                        bluetooth.write("0");
                         break;
                 }
                 return false;
             }
         });
-        btnDown.setOnTouchListener(new View.OnTouchListener() {
+        btnRight.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        ToothReadWrite.WriteBuffer((byte)8);
+                        bluetooth.write("4");
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        ToothReadWrite.WriteBuffer((byte)0);
+                        Log.v("MANDA:", "0");
+                        bluetooth.write("0");
                         break;
                 }
                 return false;
@@ -93,11 +95,11 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        ToothReadWrite.WriteBuffer((byte)1);
+                        bluetooth.write("8");
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        ToothReadWrite.WriteBuffer((byte)0);
+                        bluetooth.write("0");
                         break;
                 }
                 return false;
@@ -108,11 +110,11 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        ToothReadWrite.WriteBuffer((byte)2);
+                        bluetooth.write("2");
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        ToothReadWrite.WriteBuffer((byte)0);
+                        bluetooth.write("0");
                         break;
                 }
                 return false;
