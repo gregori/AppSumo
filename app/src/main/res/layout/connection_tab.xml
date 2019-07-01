@@ -77,7 +77,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@+id/off"
+            android:background="#FF2E2E2E"
             android:text="Bluetooth ON"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <Button
@@ -87,7 +89,9 @@
             android:layout_alignBottom="@+id/scan"
             android:layout_toEndOf="@+id/PairedBtn"
             android:layout_toRightOf="@+id/PairedBtn"
+            android:background="#FF2E2E2E"
             android:text="Bluetooth OFF"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <Button
@@ -96,7 +100,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/scan"
             android:layout_toStartOf="@+id/discover"
+            android:background="#FF2E2E2E"
             android:text="Show paired Devices"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <Button
@@ -106,7 +112,9 @@
             android:layout_below="@+id/off"
             android:layout_toEndOf="@+id/checkboxLED1"
             android:layout_toRightOf="@+id/checkboxLED1"
+            android:background="#FF2E2E2E"
             android:text="Discover New Devices"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <ListView
