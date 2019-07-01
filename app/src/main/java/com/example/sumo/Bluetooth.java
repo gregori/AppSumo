@@ -4,24 +4,20 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
 public class Bluetooth {
 
-    // #defines for identifying shared types between calling functions
     public final static int REQUEST_ENABLE_BT = 1; // used to identify adding bluetooth names
     public final static int MESSAGE_READ = 2; // used in bluetooth handler to identify message update
     public final static int CONNECTING_STATUS = 3; // used in bluetooth handler to identify message status
@@ -86,8 +82,7 @@ public class Bluetooth {
         return  device.createRfcommSocketToServiceRecord(BTMODULEUUID);
     }
 
-    public void connectBlu(final Context context, final String name, final String address) {
-        // Spawn a new thread to avoid blocking the GUI one
+    public void connectBluetooth(final Context context, final String name, final String address) {
         new Thread()
         {
             public void run() {
@@ -101,7 +96,7 @@ public class Bluetooth {
                     fail = true;
                     Toast.makeText(context, "Socket creation failed", Toast.LENGTH_SHORT).show();
                 }
-                // Establish the Bluetooth socket connection.
+
                 try {
                     mBTSocket.connect();
                 } catch (IOException e) {
@@ -111,7 +106,6 @@ public class Bluetooth {
                         mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
                                 .sendToTarget();
                     } catch (IOException e2) {
-                        //insert code to deal with this
                         Toast.makeText(context, "Socket creation failed", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -133,8 +127,6 @@ public class Bluetooth {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            // Get the input and output streams, using temp objects because
-            // member streams are final
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
@@ -150,7 +142,6 @@ public class Bluetooth {
             int bytes; // bytes returned from read()
             while (true) {
                 try {
-                    // Read from the InputStream
                     bytes = mmInStream.available();
                     if(bytes != 0) {
                         buffer = new byte[1024];
@@ -168,7 +159,6 @@ public class Bluetooth {
         }
     }
 
-    /* Call this from the main activity to send data to the remote device */
     public void write(String input) {
         byte[] bytes = input.getBytes();           //converts entered String into bytes
         try {
@@ -176,7 +166,6 @@ public class Bluetooth {
         } catch (IOException e) { }
     }
 
-    /* Call this from the main activity to shutdown the connection */
     public void cancel() {
         try {
             mmSocket.close();

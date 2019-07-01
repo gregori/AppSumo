@@ -240,7 +240,7 @@ public class ConnectionTab extends Fragment {
             final String address = info.substring(info.length() - 17);
             final String name = info.substring(0,info.length() - 17);
 
-            mBluetooth.connectBlu(getContext(), name, address);
+            mBluetooth.connectBluetooth(getContext(), name, address);
         }
     };
 

@@ -20,11 +20,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:background="#FF191717"
+                android:background="#FFFFFF"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="RX:"
-                android:textColor="#FFFFFF"
+                android:textColor="#FF2E2E2E"
                 android:textStyle="bold" />
 
             <TextView
@@ -33,11 +33,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_weight="0.9"
-                android:background="#FF191717"
+                android:background="#FFFFFF"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="&lt;Read Buffer>"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FF2E2E2E" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,11 +49,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:background="#FF191717"
+                android:background="#FFFFFF"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Status:"
-                android:textColor="#FFFFFF"
+                android:textColor="#FF2E2E2E"
                 android:textStyle="bold" />
 
             <TextView
@@ -64,11 +64,11 @@
                 android:layout_alignTop="@+id/checkboxLED1"
                 android:layout_centerHorizontal="true"
                 android:layout_weight="0.9"
-                android:background="#FF191717"
+                android:background="#FFFFFF"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="&lt;Bluetooth Status>"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FF2E2E2E" />
         </LinearLayout>
 
         <Button
