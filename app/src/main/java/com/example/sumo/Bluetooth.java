@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
@@ -23,6 +24,7 @@ public class Bluetooth {
     public final static int CONNECTING_STATUS = 3; // used in bluetooth handler to identify message status
 
     public static BluetoothSocket mmSocket;
+    public static Boolean Erro = false;
     public static InputStream mmInStream;
     public static OutputStream mmOutStream;
     public static OutputStream mmOutStreamTeset;
@@ -43,7 +45,7 @@ public class Bluetooth {
     }
 
     public Bluetooth(){
-
+        //
     }
 
     public Set<BluetoothDevice> lsitPairedDevices() {
@@ -159,11 +161,31 @@ public class Bluetooth {
         }
     }
 
-    public void write(String input) {
+    public void write(String input){
         byte[] bytes = input.getBytes();           //converts entered String into bytes
         try {
             mmOutStreamTeset.write(bytes);
-        } catch (IOException e) { }
+            Erro = false;
+        } catch (Exception e) {
+            Erro = true;
+        }
+    }
+
+    public String receiveData(String Sensor) {
+        String s = "";
+        try {
+            if (mmInStream.available() > 0) {
+                byte[] inBuffer = new byte[1024];
+                int bytesRead = mmInStream.read(inBuffer);
+                s = new String(inBuffer, StandardCharsets.US_ASCII);
+                s = s.substring(0, bytesRead);
+                return s;
+            }
+            return "Erro: Não foi possível ler os sensores de '"+ Sensor+"'";
+        } catch (Exception e) {
+            Log.e(TAG, "Read failed!", e);
+            return "Erro: Não foi possível ler os sensores de '"+ Sensor+"'";
+        }
     }
 
     public void cancel() {
