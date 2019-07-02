@@ -150,6 +150,7 @@ public class ConnectionTab extends Fragment {
     private void bluetoothOff(View view){
         mBluetooth.disable();
         mBluetoothStatus.setText("Bluetooth disabled");
+        mBluetooth.cancel();
         Toast.makeText(view.getContext(),"Bluetooth turned Off", Toast.LENGTH_SHORT).show();
     }
 
