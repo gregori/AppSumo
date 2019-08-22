@@ -1,7 +1,9 @@
 package com.example.sumo;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
+import static android.view.View.*;
 
 
 public class ConnectionTab extends Fragment {
@@ -42,11 +45,14 @@ public class ConnectionTab extends Fragment {
     private Bluetooth mBluetooth;
     private Handler mHandler;
 
+    protected View mView;
 
+
+    @SuppressLint("HandlerLeak")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.connection_tab, container, false);
-
+        View view = inflater.inflate(R.layout.connection_tab, container, false);
+        mView = view;
         mBluetoothStatus = view.findViewById(R.id.bluetoothStatus);
         mReadBuffer = view.findViewById(R.id.readBuffer);
         mScanBtn = view.findViewById(R.id.scan);
@@ -93,26 +99,26 @@ public class ConnectionTab extends Fragment {
         }
         else {
 
-            mScanBtn.setOnClickListener(new View.OnClickListener() {
+            mScanBtn.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     bluetoothOn(v);
                 }
             });
-            mOffBtn.setOnClickListener(new View.OnClickListener(){
+            mOffBtn.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v){
                     bluetoothOff(v);
                 }
             });
-            mListPairedDevicesBtn.setOnClickListener(new View.OnClickListener() {
+            mListPairedDevicesBtn.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v){
                     listPairedDevices(v);
                 }
             });
 
-            mDiscoverBtn.setOnClickListener(new View.OnClickListener(){
+            mDiscoverBtn.setOnClickListener(new OnClickListener(){
                 @Override
                 public void onClick(View v){
                     discover(v);
@@ -123,6 +129,14 @@ public class ConnectionTab extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (this.mView != null)
+            this.listPairedDevices(this.mView);
+    }
+
     private void bluetoothOn(View view){
         if (!mBluetooth.enabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -130,8 +144,7 @@ public class ConnectionTab extends Fragment {
             mBluetoothStatus.setText("Bluetooth enabled");
             Toast.makeText(view.getContext(),"Bluetooth turned on",Toast.LENGTH_SHORT).show();
 
-        }
-        else{
+        } else {
             Toast.makeText(view.getContext(),"Bluetooth is already on", Toast.LENGTH_SHORT).show();
         }
     }

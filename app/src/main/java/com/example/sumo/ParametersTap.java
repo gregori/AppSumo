@@ -1,5 +1,6 @@
 package com.example.sumo;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -23,6 +24,7 @@ public class ParametersTap extends Fragment {
     private Button btnKP;
     private Button btnKD;
     private Button btnKI;
+    private Button startStop;
 
     private EditText edtAtaque;
     private EditText edtRecover;
@@ -31,8 +33,11 @@ public class ParametersTap extends Fragment {
     private EditText edtKP;
     private EditText edtKI;
 
+    private int isRunnig = 0;
+
     public Bluetooth bluetooth = new Bluetooth();
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.parameters_tab, container, false);
@@ -56,6 +61,24 @@ public class ParametersTap extends Fragment {
         edtKD = view.findViewById(R.id.edtKD);
         edtKP = view.findViewById(R.id.edtKP);
         edtKI = view.findViewById(R.id.edtKI);
+
+        startStop = view.findViewById(R.id.start_stop);
+        startStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isRunnig == 1) {
+                    isRunnig = 0;
+                    startStop.setText("Start");
+                } else {
+                    isRunnig = 1;
+                    startStop.setText("Stop");
+                }
+
+                byte[] value = Protocol.intToByte(isRunnig);
+                byte[] data = new byte[] { Protocol.START_STOP_ROBOT, value[0], value[1] };
+                bluetooth.write(data);
+            }
+        });
 
         btnLeft.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -175,42 +198,38 @@ public class ParametersTap extends Fragment {
 
     private void SendBluetoothParamenters(String field){
         Boolean ValorIncorreto = false;
-        String value = "";
+        byte[] value;
         try {
             if (field.equals("Ataque")) {
                 if (Integer.valueOf(edtAtaque.getText().toString()) >= 0 && Integer.valueOf(edtAtaque.getText().toString()) <= 255) {
-                    value = edtAtaque.getText().toString();
-                    bluetooth.write(edtAtaque.getText().toString());
-                    edtAtaque.setText("");
-                    bluetooth.write("0");
-
+                    value = Protocol.intToByte(Integer.valueOf(edtAtaque.getText().toString()));
+                    byte[] data = new byte[] { Protocol.SET_ATTAK, value[0], value[1] };
+                    bluetooth.write(data);
                 } else {
                     ValorIncorreto = true;
                     Toast.makeText(this.getActivity(), "O valor de 'Ataque' deve estar entre 0 e 255", Toast.LENGTH_LONG).show();
                 }
             } else if (field.equals("Recover")) {
                 if (Integer.valueOf(edtRecover.getText().toString()) >= 0 && Integer.valueOf(edtRecover.getText().toString()) <= 255) {
-                    value = edtRecover.getText().toString();
-                    bluetooth.write(edtRecover.getText().toString());
-                    edtRecover.setText("");
-                    bluetooth.write("0");
+                    value = Protocol.intToByte(Integer.valueOf(edtRecover.getText().toString()));
+                    byte[] data = new byte[] { Protocol.SET_RECOVER, value[0], value[1] };
+                    bluetooth.write(data);
                 } else {
                     ValorIncorreto = true;
                     Toast.makeText(this.getActivity(), "O valor de 'Recover' deve estar entre 0 e 255", Toast.LENGTH_LONG).show();
                 }
             } else if (field.equals("Search")) {
                 if (Integer.valueOf(edtSearch.getText().toString()) >= 0 && Integer.valueOf(edtSearch.getText().toString()) <= 255) {
-                    value = edtSearch.getText().toString();
-                    bluetooth.write(edtSearch.getText().toString());
-                    edtSearch.setText("");
-                    bluetooth.write("0");
+                    value = Protocol.intToByte(Integer.valueOf(edtSearch.getText().toString()));
+                    byte[] data = new byte[] { Protocol.SET_SEARCH, value[0], value[1] };
+                    bluetooth.write(data);
                 } else {
                     ValorIncorreto = true;
                     Toast.makeText(this.getActivity(), "O valor de 'Search' deve estar entre 0 e 255", Toast.LENGTH_LONG).show();
                 }
             } else if (field.equals("KD")) {
                 if (Integer.valueOf(edtKD.getText().toString()) >= 0 && Integer.valueOf(edtKD.getText().toString()) <= 255) {
-                    value = edtKD.getText().toString();
+//                    value = edtKD.getText().toString();
                     bluetooth.write(edtKD.getText().toString());
                     bluetooth.write("0");
                     edtKD.setText("");
@@ -220,7 +239,7 @@ public class ParametersTap extends Fragment {
                 }
             } else if (field.equals("KP")) {
                 if (Integer.valueOf(edtKP.getText().toString()) >= 0 && Integer.valueOf(edtKP.getText().toString()) <= 255) {
-                    value = edtKP.getText().toString();
+//                    value = edtKP.getText().toString();
                     bluetooth.write(edtKP.getText().toString());
                     bluetooth.write("0");
                     edtKP.setText("");
@@ -230,7 +249,7 @@ public class ParametersTap extends Fragment {
                 }
             } else if (field.equals("KI")) {
                 if (Integer.valueOf(edtKI.getText().toString()) >= 0 && Integer.valueOf(edtKI.getText().toString()) <= 255) {
-                    value = edtKI.getText().toString();
+//                    value = edtKI.getText().toString();
                     bluetooth.write(edtKI.getText().toString());
                     edtKI.setText("");
                     bluetooth.write("0");
@@ -244,7 +263,7 @@ public class ParametersTap extends Fragment {
                 if (Bluetooth.Erro)
                     Toast.makeText(this.getActivity(), "Erro: Não foi possível enviar os valores!", Toast.LENGTH_LONG).show();
                 else
-                    Toast.makeText(this.getActivity(), "O valor de " + field + " foi enviado com sucesso! Valor: '" + value + "'", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this.getActivity(), "O valor de " + field + " foi enviado com sucesso!", Toast.LENGTH_LONG).show();
             }
         }
         catch (Exception e){

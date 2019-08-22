@@ -2,14 +2,16 @@ package com.example.sumo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SetCaseTab extends Fragment {
+public class SetCaseTab extends Fragment implements View.OnClickListener {
 
     private Button btnSetCase1;
     private Button btnSetCase2;
@@ -55,170 +57,71 @@ public class SetCaseTab extends Fragment {
         btnSetCase16 = view.findViewById(R.id.btnSetCase16);
         txvMessageControl = view.findViewById(R.id.txvMessageControl);
 
-        btnSetCase1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("110");
-                bluetooth.write("0");
-                StrategyNumber = "1";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("120");
-                bluetooth.write("0");
-                StrategyNumber = "2";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("130");
-                bluetooth.write("0");
-                StrategyNumber = "3";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("140");
-                bluetooth.write("0");
-                StrategyNumber = "4";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("150");
-                bluetooth.write("0");
-                StrategyNumber = "5";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase6.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("160");
-                bluetooth.write("0");
-                StrategyNumber = "6";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase7.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("170");
-                bluetooth.write("0");
-                StrategyNumber = "7";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase8.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("180");
-                bluetooth.write("0");
-                StrategyNumber = "8";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase9.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("190");
-                bluetooth.write("0");
-                StrategyNumber = "9";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase10.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("200");
-                bluetooth.write("0");
-                StrategyNumber = "10";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase11.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("210");
-                bluetooth.write("0");
-                StrategyNumber = "11";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase12.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("220");
-                bluetooth.write("0");
-                StrategyNumber = "12";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase13.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("230");
-                bluetooth.write("0");
-                StrategyNumber = "13";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase14.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("240");
-                bluetooth.write("0");
-                StrategyNumber = "14";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase15.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("250");
-                bluetooth.write("0");
-                StrategyNumber = "15";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-        btnSetCase16.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                bluetooth.write("255");
-                bluetooth.write("0");
-                StrategyNumber = "16";
-                EstrategiaSetada = true;
-                ShowMessage();
-            }
-        });
-
-
-
+        btnSetCase1.setOnClickListener(this);
+        btnSetCase2.setOnClickListener(this);
+        btnSetCase3.setOnClickListener(this);
+        btnSetCase4.setOnClickListener(this);
+        btnSetCase5.setOnClickListener(this);
+        btnSetCase6.setOnClickListener(this);
+        btnSetCase7.setOnClickListener(this);
+        btnSetCase8.setOnClickListener(this);
+        btnSetCase9.setOnClickListener(this);
+        btnSetCase10.setOnClickListener(this);
+        btnSetCase11.setOnClickListener(this);
+        btnSetCase12.setOnClickListener(this);
+        btnSetCase13.setOnClickListener(this);
+        btnSetCase14.setOnClickListener(this);
+        btnSetCase15.setOnClickListener(this);
+        btnSetCase16.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        int strategy = 0;
+        byte[] strategyData;
+
+        if (v == this.btnSetCase1) {
+            strategy = 1;
+        } else if (v == this.btnSetCase2) {
+            strategy = 2;
+        } else if (v == this.btnSetCase3) {
+            strategy = 3;
+        } else if (v == this.btnSetCase4) {
+            strategy = 4;
+        } else if (v == this.btnSetCase5) {
+            strategy = 5;
+        } else if (v == this.btnSetCase6) {
+            strategy = 6;
+        } else if (v == this.btnSetCase7) {
+            strategy = 7;
+        } else if (v == this.btnSetCase8) {
+            strategy = 8;
+        } else if (v == this.btnSetCase9) {
+            strategy = 9;
+        } else if (v == this.btnSetCase10) {
+            strategy = 10;
+        } else if (v == this.btnSetCase11) {
+            strategy = 11;
+        } else if (v == this.btnSetCase12) {
+            strategy = 12;
+        } else if (v == this.btnSetCase13) {
+            strategy = 13;
+        } else if (v == this.btnSetCase14) {
+            strategy = 14;
+        } else if (v == this.btnSetCase15) {
+            strategy = 15;
+        } else if (v == this.btnSetCase16) {
+            strategy = 16;
+        }
+
+
+        strategyData = Protocol.intToByte(strategy);
+        Log.i("Strategy tab", "Value: " + strategyData[0] + " - " + strategyData[1]);
+        byte[] data = new byte[] { Protocol.SET_STRATEGY, strategyData[0], strategyData[1] };
+        bluetooth.write(data);
     }
 
 

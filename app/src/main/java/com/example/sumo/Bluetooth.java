@@ -171,6 +171,15 @@ public class Bluetooth {
         }
     }
 
+    public void write(byte[] data) {
+        try {
+            mmOutStreamTeset.write(data);
+            Erro = false;
+        } catch (Exception e) {
+            Erro = true;
+        }
+    }
+
     public String receiveData(String Sensor) {
         String s = "";
         try {
