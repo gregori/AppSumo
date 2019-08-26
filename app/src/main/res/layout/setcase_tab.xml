@@ -6,287 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnSetCase1"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 1"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSetCase2"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 2"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase1"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase1" />
-
-    <Button
-        android:id="@+id/btnSetCase3"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 3"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase2"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase2" />
-
-    <Button
-        android:id="@+id/btnSetCase4"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 4"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase3" />
-
-    <Button
-        android:id="@+id/btnSetCase5"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 5"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetCase1" />
-
-    <Button
-        android:id="@+id/btnSetCase6"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 6"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase5"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase5" />
-
-    <Button
-        android:id="@+id/btnSetCase7"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 7"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase6"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase6" />
-
-    <Button
-        android:id="@+id/btnSetCase8"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 8"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase7" />
-
-    <Button
-        android:id="@+id/btnSetCase9"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 9"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetCase5" />
-
-    <Button
-        android:id="@+id/btnSetCase10"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 10"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase9"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase9" />
-
-    <Button
-        android:id="@+id/btnSetCase11"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 11"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase10"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase10" />
-
-    <Button
-        android:id="@+id/btnSetCase12"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 12"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase11" />
-
-    <Button
-        android:id="@+id/btnSetCase13"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 13"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetCase9" />
-
-    <Button
-        android:id="@+id/btnSetCase14"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 14"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase13"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase13" />
-
-    <Button
-        android:id="@+id/btnSetCase15"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 15"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase14"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase14" />
-
-    <Button
-        android:id="@+id/btnSetCase16"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/button_principal"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="0"
-        android:text="Case 16"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnSetCase15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSetCase15" />
-
-    <TextView
-        android:id="@+id/txvMessageControl"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        android:background="#FF2E2E2E"
-        android:hint="Your Message"
-        android:textColor="#FFFFFF"
+    <TableLayout
+        android:id="@+id/button_space"
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetCase15" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 </android.support.constraint.ConstraintLayout>
