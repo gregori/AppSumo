@@ -85,12 +85,12 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        bluetooth.write("6");
+                        controlMotor(40, -40);
                         break;
 
                     case MotionEvent.ACTION_UP:
                         Log.v("MANDA:", "0");
-                        bluetooth.write("0");
+                        controlMotor(0, 0);
                         break;
                 }
                 return false;
@@ -102,12 +102,12 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        bluetooth.write("4");
+                        controlMotor(-40, 40);
                         break;
 
                     case MotionEvent.ACTION_UP:
                         Log.v("MANDA:", "0");
-                        bluetooth.write("0");
+                        controlMotor(0, 0);
                         break;
                 }
                 return false;
@@ -119,11 +119,11 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        bluetooth.write("8");
+                        controlMotor(40, 40);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        bluetooth.write("0");
+                        controlMotor(0, 0);
                         break;
                 }
                 return false;
@@ -135,11 +135,11 @@ public class ParametersTap extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        bluetooth.write("2");
+                        controlMotor(-40, -40);
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        bluetooth.write("0");
+                        controlMotor(0, 0);
                         break;
                 }
                 return false;
@@ -148,6 +148,17 @@ public class ParametersTap extends Fragment {
 
         OnclickEvents();
         return view;
+    }
+
+    public void controlMotor(int left, int right) {
+        byte[] leftBuff = Protocol.intToByte(left);
+        byte[] rightBuff = Protocol.intToByte(right);
+        byte[] data = new byte[] { Protocol.MOTOR_CONTROL, leftBuff[0], leftBuff[1], rightBuff[0], rightBuff[1] };
+        try {
+            bluetooth.write(data);
+        } catch (Exception e) {
+            Toast.makeText(this.getContext(), "Erro ao mover motores", Toast.LENGTH_LONG);
+        }
     }
 
 
@@ -228,11 +239,11 @@ public class ParametersTap extends Fragment {
                     Toast.makeText(this.getActivity(), "O valor de 'Search' deve estar entre 0 e 255", Toast.LENGTH_LONG).show();
                 }
             } else if (field.equals("KD")) {
-                if (Integer.valueOf(edtKD.getText().toString()) >= 0 && Integer.valueOf(edtKD.getText().toString()) <= 255) {
-//                    value = edtKD.getText().toString();
-                    bluetooth.write(edtKD.getText().toString());
-                    bluetooth.write("0");
-                    edtKD.setText("");
+                if (Integer.valueOf(edtKD.getText().toString()) >= 0) {
+                    value = Protocol.intToByte(Integer.valueOf(edtKD.getText().toString()));
+                    byte[] data = new byte[] { Protocol.SET_DELAY, value[0], value[1] };
+//                    edtKD.setText("");
+                    bluetooth.write(data);
                 } else {
                     ValorIncorreto = true;
                     Toast.makeText(this.getActivity(), "O valor de 'KD' deve estar entre 0 e 255", Toast.LENGTH_LONG).show();

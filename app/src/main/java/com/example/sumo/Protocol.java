@@ -7,6 +7,7 @@ public class Protocol {
     public static byte SET_ATTAK = 4;
     public static byte SET_RECOVER = 5;
     public static byte SET_SEARCH = 6;
+    public static byte SET_DELAY = 7;
 
 
     public static byte[] intToByte(int value) {
