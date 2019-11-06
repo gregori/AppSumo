@@ -34,7 +34,6 @@ import static android.view.View.*;
 public class ConnectionTab extends Fragment {
 
     private TextView mBluetoothStatus;
-    private TextView mReadBuffer;
     private Button mScanBtn;
     private Button mOffBtn;
     private Button mListPairedDevicesBtn;
@@ -54,7 +53,6 @@ public class ConnectionTab extends Fragment {
         View view = inflater.inflate(R.layout.connection_tab, container, false);
         mView = view;
         mBluetoothStatus = view.findViewById(R.id.bluetoothStatus);
-        mReadBuffer = view.findViewById(R.id.readBuffer);
         mScanBtn = view.findViewById(R.id.scan);
         mOffBtn = view.findViewById(R.id.off);
         mDiscoverBtn = view.findViewById(R.id.discover);
@@ -72,22 +70,12 @@ public class ConnectionTab extends Fragment {
 
         mHandler = new Handler(){
             public void handleMessage(android.os.Message msg){
-                if(msg.what == Bluetooth.MESSAGE_READ){
-                    String readMessage = null;
-                    try {
-                        readMessage = new String((byte[]) msg.obj, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                    mReadBuffer.setText(readMessage);
-                }
-
-                if(msg.what == Bluetooth.CONNECTING_STATUS){
-                    if(msg.arg1 == 1)
-                        mBluetoothStatus.setText("Connected to Device: " + (String)(msg.obj));
-                    else
-                        mBluetoothStatus.setText("Connection Failed");
-                }
+            if(msg.what == Bluetooth.CONNECTING_STATUS){
+                if(msg.arg1 == 1)
+                    mBluetoothStatus.setText("Connected to Device: " + (String)(msg.obj));
+                else
+                    mBluetoothStatus.setText("Connection Failed");
+            }
             }
         };
 
